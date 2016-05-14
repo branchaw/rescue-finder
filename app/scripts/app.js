@@ -17,8 +17,18 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'ngMap'
+//     'uiGmapgoogle-maps'
   ])
+//   .config(
+//     ['uiGmapGoogleMapApiProvider', function(GoogleMapApiProviders) {
+//         GoogleMapApiProviders.configure({
+//             key: 'AIzaSyCj37hATwUh9_59VaD-Bmlea66V_FDGr2w',
+//             china: true
+//         });
+//     }]
+//   )
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
