@@ -19,16 +19,7 @@ angular
     'ngSanitize',
     'ngTouch',
     'ngMap'
-//     'uiGmapgoogle-maps'
   ])
-//   .config(
-//     ['uiGmapGoogleMapApiProvider', function(GoogleMapApiProviders) {
-//         GoogleMapApiProviders.configure({
-//             key: 'AIzaSyCj37hATwUh9_59VaD-Bmlea66V_FDGr2w',
-//             china: true
-//         });
-//     }]
-//   )
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
@@ -40,6 +31,11 @@ angular
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl',
         controllerAs: 'about'
+      })
+     .when('/search', {
+        templateUrl: 'views/search.html',
+        controller: 'SearchCtrl',
+        controllerAs: 'search'
       })
       .otherwise({
         redirectTo: '/'

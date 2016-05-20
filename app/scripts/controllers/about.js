@@ -8,10 +8,9 @@
  * Controller of the workspaceApp
  */
 angular.module('workspaceApp')
-  .controller('AboutCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('AboutCtrl', function ($scope) {
+    $scope.query = "animal rescues in";
+  
   });
+
+

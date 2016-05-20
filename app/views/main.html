@@ -1,35 +1,25 @@
-<!--<div class="jumbotron">
-  <h1>'Allo, 'Allo!</h1>
-  <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#/">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
-</div>
-</div> -->
-
 <div ng-app class="jumbotron" ng-controller="MainCtrl">
-  <h1>Search for Animal Rescues</h1>
+  <h1>Welcome to Rescue Finder</h1>
   <p class="lead">
-    <div ng-init="location='Seattle'">
+    <div ng-init="location='98122'">
         <p>
-          <label for="location">Location:
-            <input type="text" name="location" ng-model="location">
+          <label for="location">Zipcode Search:
+            <input type="zipcode" name="location" ng-model="location">
           </label>
         </p>
         <p>
-          <button class="btn btn-lg btn-primary" ng-click="refreshCurrent()">Enter new location</button>
+          <button class="btn btn-lg btn-primary" ng-click="searchZip()">Enter new zipcode</button>
         </p>
+      <dl>
+        <dt>Shelters</dt>
+        <dd ng-repeat="shelter in current.petfinder.shelters.shelter"><b>Name </b>{{shelter.name.$t}} - {{shelter.city.$t}} <br/>
+          <b>Contact</b> <br/> {{shelter.email.$t}} <br/> {{shelter.phone.$t}} </dd>
+        
+      </dl>
      </div>
   </p>
 </div> 
-
-<!--     <div id="map_canvas" ng-controller="mainCtrl"> -->
-<!--     <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="options"> -->
-<!--         <ui-gmap-search-box template="searchbox.template" events="searchbox.events"></ui-gmap-search-box> -->
-<!--     </ui-gmap-google-map> -->
-
-<!-- <ui-gmap-google-map center='map.center' zoom='map.zoom'></ui-gmap-google-map> -->
+<!--
 <p> 
 <div map-lazy-load="https://maps.google.com/maps/api/js"
   map-lazy-load-params="{{googleMapsUrl}}">
@@ -41,12 +31,10 @@
 <div map-lazy-load="https://maps.google.com/maps/api/js"
   map-lazy-load-params="{{googleMapsUrl}}">
    <ng-map center="-25.363882,131.044922" zoom="4">
+     <ng-map-search-box template="searchbox.template" events="searchbox.events"></ng-map-search-box>
     <marker position="-25.363882,131.044922" title="Hello World!"></marker>
   </ng-map>
 </div>
-</p>
+</p> -->
 
-<!--
- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCj37hATwUh9_59VaD-Bmlea66V_FDGr2w&libraries=places&callback=initAutocomplete"
-         async defer></script> -->
- 
+

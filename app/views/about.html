@@ -1,1 +1,28 @@
-<p>This is the about view.</p>
+
+<div ng-app class="jumbotron" ng-controller="AboutCtrl">
+<h1>Welcome to Rescue Finder</h1>
+  <p class="lead">
+    <div ng-init="location='Seattle'">
+     <label for="location">Search for:
+    
+    <input  type="text" 
+        ng-model="query"
+        ng-places-autocomplete 
+        pa-options="optionsObject" 
+        pa-trigger="triggerFunc"
+        pa-on-place-ready="callbackFunction"
+        />  
+     </label>
+     </p>
+  <p> 
+  <button class="btn btn-lg btn-primary" ng-click="triggerFunc()">Search</button>
+  </p>
+
+  <p>
+    Search for {{query}}
+  </p>
+  <p>{{shelterSearch.shelters.shelter.name.$t}}  
+  </p>
+  </div>
+</div>
+

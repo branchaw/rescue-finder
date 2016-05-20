@@ -5,7 +5,7 @@
  * @name workspaceApp.current
  * @description
  * # current
- * Factory in the workspaceApp.*
+ * Factory in the workspaceApp.*/
  
 angular.module('workspaceApp')
   .factory('current', function ($resource) {
@@ -14,16 +14,19 @@ angular.module('workspaceApp')
 
 
     // Public API here
-    return $resource('https://maps.googleapis.com/maps/api/place/textsearch/xml?query=animal+rescues+shelters+in+Seattle&key=AIzaSyCj37hATwUh9_59VaD-Bmlea66V_FDGr2w', {}, {
+    return $resource(
+      'http://api.petfinder.com/shelter.find?key=47dc816692c1648821b64b0e49169781&location=:location&output=full&format=json',
+      {
+        callback: "JSON_CALLBACK"
+      },
+      {
       query: {
-        method:'GET',
+        method:'JSONP',
         params:{
-          location: '47.6149942,-122.4759881',
-          radius: '500',
-          keyword: 'animal+shelter+rescue',
+          location: '98122', 
           bogus: null
         },
         isArray:false
       }
     });
-  }); */
+  }); 
