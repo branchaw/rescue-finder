@@ -1,0 +1,11 @@
+<h2>More Nearby Results</h2>
+      <dl ng-repeat="shelter in $root.viewMore.petfinder.shelters.shelter | orderBy:location" class="shelter-list">
+        <dt>{{shelter.name.$t}}</dt>
+        <dd>{{shelter.address1.$t}} {{shelter.address2.$t}}</dd>
+        <dd>{{shelter.city.$t}}, {{shelter.state.$t}} {{shelter.zip.$t}}</dd>
+        <dt>Contact</dt>
+        <dd>{{shelter.email.$t}}</dd>
+        <dd>{{shelter.phone.$t}}</dd>
+       </dl>
+    
+<p><stong><a ng-href="#/" class="btn btn-lg btn-primary">Start New Search</a></stong></p>

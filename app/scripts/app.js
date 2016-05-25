@@ -32,7 +32,7 @@ angular
         controller: 'AboutCtrl',
         controllerAs: 'about'
       })
-     .when('/search', {
+     .when('/search/:location', {
         templateUrl: 'views/search.html',
         controller: 'SearchCtrl',
         controllerAs: 'search'

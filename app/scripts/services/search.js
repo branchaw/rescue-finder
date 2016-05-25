@@ -12,26 +12,21 @@ angular.module('workspaceApp')
     // Service logic
     // ...
 
-    var settings = {
-  "async": true,
-  "crossDomain": true,
-  "url": "http://api.petfinder.com/shelter.find?key=47dc816692c1648821b64b0e49169781&location=98122&output=full&format=json",
-  "method": "GET",
-  "headers": {
-    "cache-control": "no-cache",
-    "postman-token": "4d0eae8b-874d-07f3-1674-35d75d05351c"
-  }
-}
-    $.ajax(settings).done(function (response) {
-  console.log(response);
-});
 
     // Public API here
-     return $resource('http://api.petfinder.com/shelter.find?key=47dc816692c1648821b64b0e49169781&location=98122&output=full&format=json', {}, {
+    return $resource(
+      'http://api.petfinder.com/shelter.find?key=47dc816692c1648821b64b0e49169781&location=:location&output=full&format=json',
+      {
+        callback: "JSON_CALLBACK"
+      },
+      {
       query: {
-        method:'GET',
-        isArray:false
+        method:'JSONP',
+        params:{
+          location: '98122'
+        },
+        isArray:true
       }
     });
-  });
+  }); 
 

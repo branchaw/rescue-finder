@@ -1,25 +1,32 @@
 <div ng-app class="jumbotron" ng-controller="MainCtrl">
-  <h1>Welcome to Rescue Finder</h1>
+  <h1>Rescue Finder</h1>
+  <p>
+    Search for nearby animal welfare and rescue organizations using your zipcode.
+  </p>
   <p class="lead">
     <div ng-init="location='98122'">
         <p>
-          <label for="location">Zipcode Search:
+          <label for="location">Enter Your Zip:
             <input type="zipcode" name="location" ng-model="location">
           </label>
         </p>
-        <p>
-          <button class="btn btn-lg btn-primary" ng-click="searchZip()">Enter new zipcode</button>
-        </p>
-      <h2>Search Results</h2>
-      <dl ng-repeat="shelter in current.petfinder.shelters.shelter" class="shelter-list">
+      
+        <p><button class="btn btn-lg btn-primary" ng-click="searchZip()">Search</button></p>
+      
+      <h2>Nearby Results</h2>
+      <dl ng-repeat="shelter in current.petfinder.shelters.shelter | orderBy:location | limitTo:quantity" class="shelter-list">
         <dt>{{shelter.name.$t}}</dt>
         <dd>{{shelter.address1.$t}} {{shelter.address2.$t}}</dd>
         <dd>{{shelter.city.$t}}, {{shelter.state.$t}} {{shelter.zip.$t}}</dd>
         <dt>Contact</dt>
         <dd>{{shelter.email.$t}}</dd>
         <dd>{{shelter.phone.$t}}</dd>
-       </dl>
+      </dl>
      </div>
+  
+       <p><a ng-href="#/search/{{location}}" class="btn btn-lg btn-primary">View More Results</a></p>
+  
+   </div>
   </p>
 </div> 
 

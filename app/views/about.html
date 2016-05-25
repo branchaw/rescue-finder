@@ -1,28 +1,8 @@
 
 <div ng-app class="jumbotron" ng-controller="AboutCtrl">
-<h1>Welcome to Rescue Finder</h1>
+<h1>People<span class="glyphicon glyphicon-heart"></span>Pets</h1>
   <p class="lead">
-    <div ng-init="location='Seattle'">
-     <label for="location">Search for:
-    
-    <input  type="text" 
-        ng-model="query"
-        ng-places-autocomplete 
-        pa-options="optionsObject" 
-        pa-trigger="triggerFunc"
-        pa-on-place-ready="callbackFunction"
-        />  
-     </label>
+   Rescue Finder puts people in touch with pets and animal welfare organizations using nearby zipcode searches with data supplied by Petfinder.com. 
      </p>
-  <p> 
-  <button class="btn btn-lg btn-primary" ng-click="triggerFunc()">Search</button>
-  </p>
-
-  <p>
-    Search for {{query}}
-  </p>
-  <p>{{shelterSearch.shelters.shelter.name.$t}}  
-  </p>
-  </div>
 </div>
 

@@ -8,11 +8,15 @@
  * Controller of the workspaceApp */
  
 angular.module('workspaceApp')
-  .controller('MainCtrl', function ($scope, current) {
+  .controller('MainCtrl', function ($scope, $rootScope, current, search) {
     console.log($scope.current = current.query({location: "98102"}));
+   $rootScope.viewMore = $scope.current;
   $scope.searchZip=function() {
     $scope.current = current.query({location: $scope.location});
+    $rootScope.viewMore = $scope.current;
   };
+  $scope.orderProp = 'location';
+  $scope.quantity = 5; 
   });
 
 
