@@ -8,16 +8,63 @@
  * Controller of the workspaceApp */
  
 angular.module('workspaceApp')
-  .controller('MainCtrl', function ($scope, $rootScope, current, search) {
+  .controller('MainCtrl', function ($scope, $rootScope, current, search, $localStorage) {
     console.log($scope.current = current.query({location: "98102"}));
    $rootScope.viewMore = $scope.current;
-  $scope.searchZip=function() {
-    $scope.current = current.query({location: $scope.location});
+  
+  $scope.searchZip=function(location) {
+      $scope.current = current.query({location: $scope.location});     
     $rootScope.viewMore = $scope.current;
   };
-  $scope.orderProp = 'location';
-  $scope.quantity = 5; 
+    $scope.orderProp = 'location';
+    $scope.quantity = 5;  
+     
+   $scope.storage = $localStorage;
+  
+ $scope.saveZip = function(location){
+//    var zip = current.query() 
+   var zipData = {
+        'location': location    
+    };
+   console.log(zipData);
+    if (!$localStorage.savedZips){
+        $localStorage.savedZips = [zipData];
+    } else {
+        
+        // Check to make sure we haven't already saved the current location.
+      
+        var save = true; // Initialize the save decision variable.
+      
+        // Use this loop to check if we've already saved the location.
+        for (var i=0; i < $localStorage.savedZips.length; i++){
+            if ($localStorage.savedZips[i].location == zipData.location) {
+
+              // This is a duplicate, so don't save (variable set to false).
+                save = false;
+            }
+        }
+        if (save===true){
+            $localStorage.savedZips.push(zipData);
+        } else {
+            console.log('location already saved');
+        }
+      }
+    }; 
+  
+   //  $scope.zipsFound = current.find();
+   //    $scope.storage = $localStorage;
+
+  //  $scope.findZips = function(){
+  //      $scope.zipsFound = current.find({
+ //           query: $scope.location
+ //       });
+ //       $scope.searchQuery = $scope.location;
+//    };
+  
   });
+
+
+
 
 
   

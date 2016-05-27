@@ -25,9 +25,19 @@
      </div>
   
        <p><a ng-href="#/search/{{location}}" class="btn btn-lg btn-primary">View More Results</a></p>
-  
+  <p> </p>
+       <p><button class="btn btn-sm btn-primary" ng-click="saveZip(location)">Save Search</button></p>
    </div>
   </p>
+
+    <div ng-if="storage.savedZips">
+      <h2>Saved Searches</h2>
+      <ul class="saved-searches-list">
+        <li ng-repeat="zip in storage.savedZips">
+          <a ng-click="findZips(zip.location)" class="btn btn-lg btn-primary">{{zip.location}}</a>
+        </li>
+      </ul>
+    </div>
 </div> 
 
 <!--
