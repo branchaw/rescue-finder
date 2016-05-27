@@ -6,41 +6,4 @@
        }(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
        ga('create', 'UA-XXXXX-X');
-       ga('send', 'pageview');</script> <!-- 
-    <script type="text/javascript">
-$(document).ready(function(){
-    var url = 'http://api.petfinder.com/shelter.find?key=47dc816692c1648821b64b0e49169781&location=98122&output=full&format=json';
-    $.ajax({
-        type : 'GET',
-        data : {},
-        url : url+'&callback=?' ,
-        dataType: 'json',
-        success : function(data) {              
-            // stores result
-            var result = '';
-
-            var petfinder = data.petfinder;
-            var infoHTML = '<ul>';
-            infoHTML += '<li>';
-            infoHTML += '<strong>Name</strong><br>';
-            infoHTML += petfinder.shelter.find['$t'];
-            infoHTML += '</li>';
-
-            infoHTML += '</li>';
-
-            infoHTML += '</ul>';
-            // return infoHTML;
-            $('#petfinderInfo').html(infoHTML);
-
-            // $('#petfinderInfo').html(petfinder.pet.description['$t']);
-            // 
-            console.log(petfinder);
-        },
-        error : function(request,error)
-        {
-            alert("Request: "+JSON.stringify(request));
-        }
-    });
-});
-
-</script> --> <script src="scripts/vendor.59b604a0.js"></script> <script src="scripts/scripts.5d68f465.js"></script> </body> </html>
+       ga('send', 'pageview');</script> <script src="scripts/vendor.114e92c0.js"></script> <script src="scripts/scripts.dfdcf2d9.js"></script> </body> </html>
