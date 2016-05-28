@@ -34,10 +34,20 @@
       <h2>Saved Searches</h2>
       <ul class="saved-searches-list">
         <li ng-repeat="zip in storage.savedZips">
-          <a ng-click="findZips(zip.location)" class="btn btn-lg btn-primary">{{zip.location}}</a>
+          <a ng-click="savedZips(location)" class="btn btn-lg btn-primary">{{zip.location}}</a>
         </li>
       </ul>
     </div>
+
+      <div ng-messages="zipSaved">
+          <p class="zip-saved-alert bg-success text-success" ng-message="success">
+              {{zip.location}} has been saved to your list of searches.
+          </p>
+          <p class="zip-saved-alert bg-warning text-warning" ng-message="duplicate">
+             {{zip.location}} has already been saved to your list of searches.
+          </p>
+      </div>
+
 </div> 
 
 <!--

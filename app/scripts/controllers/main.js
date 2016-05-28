@@ -8,7 +8,7 @@
  * Controller of the workspaceApp */
  
 angular.module('workspaceApp')
-  .controller('MainCtrl', function ($scope, $rootScope, current, search, $localStorage) {
+  .controller('MainCtrl', function ($scope, $rootScope, current, search, $localStorage, $timeout) {
     console.log($scope.current = current.query({location: "98102"}));
    $rootScope.viewMore = $scope.current;
   
@@ -22,7 +22,6 @@ angular.module('workspaceApp')
    $scope.storage = $localStorage;
   
  $scope.saveZip = function(location){
-//    var zip = current.query() 
    var zipData = {
         'location': location    
     };
@@ -37,7 +36,7 @@ angular.module('workspaceApp')
       
         // Use this loop to check if we've already saved the location.
         for (var i=0; i < $localStorage.savedZips.length; i++){
-            if ($localStorage.savedZips[i].location == zipData.location) {
+            if ($localStorage.savedZips[i].location === zipData.location) {
 
               // This is a duplicate, so don't save (variable set to false).
                 save = false;
@@ -45,21 +44,38 @@ angular.module('workspaceApp')
         }
         if (save===true){
             $localStorage.savedZips.push(zipData);
+         
+          //object to trigger success message
+          $rootScope.zipSaved = {
+            'success': true,
+            };
+          
+ //          $timeout(function() {
+   //         $scope.showMessage = false;
+     //       }, 3000); 
+          
         } else {
             console.log('location already saved');
+        
+          //object to trigger message
+          $rootScope.zipSaved = {
+            'duplicate': true
+          };
+          
         }
       }
     }; 
   
-   //  $scope.zipsFound = current.find();
-   //    $scope.storage = $localStorage;
+     //  $scope.zipsFound = current.find();
+     //    $scope.storage = $localStorage;
 
-  //  $scope.findZips = function(){
-  //      $scope.zipsFound = current.find({
- //           query: $scope.location
- //       });
- //       $scope.searchQuery = $scope.location;
-//    };
+    //  $scope.findZips = function(){
+    //      $scope.zipsFound = current.find({
+   //           query: $scope.location
+   //       });
+   //       $scope.searchQuery = $scope.location;
+  //    };
+  
   
   });
 
