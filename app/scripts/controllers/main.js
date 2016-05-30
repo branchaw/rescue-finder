@@ -61,7 +61,7 @@ angular.module('workspaceApp')
           $rootScope.zipSaved = {
             'duplicate': true
           };
-          
+         
         }
       }
     }; 

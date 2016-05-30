@@ -1,3 +1,5 @@
+<div class="jumbotron" id="view-more">
+  
 <h2>More Nearby Results</h2>
       <dl ng-repeat="shelter in $root.viewMore.petfinder.shelters.shelter | orderBy:location" class="shelter-list">
         <dt>{{shelter.name.$t}}</dt>
@@ -9,3 +11,4 @@
        </dl>
     
 <p><stong><a ng-href="#/" class="btn btn-lg btn-primary">Start New Search</a></stong></p>
+  </div>
