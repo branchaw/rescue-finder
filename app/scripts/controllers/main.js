@@ -13,6 +13,7 @@ angular.module('workspaceApp')
    $rootScope.viewMore = $scope.current;
   
   $scope.searchZip=function(location) {
+      console.log(location);
       $scope.current = current.query({location: $scope.location});     
     $rootScope.viewMore = $scope.current;
   };
@@ -47,35 +48,44 @@ angular.module('workspaceApp')
          
           //object to trigger success message
           $rootScope.zipSaved = {
-            'success': true,
+            'success': true
             };
           
- //          $timeout(function() {
-   //         $scope.showMessage = false;
-     //       }, 3000); 
-          
+                  
         } else {
             console.log('location already saved');
         
           //object to trigger message
           $rootScope.zipSaved = {
             'duplicate': true
-          };
-         
+          };         
         }
       }
+  //        $timeout.zipSaved(function() {
+  //         $scope.showMessage = false;
+  //          }, 2000); 
+       
+     // messed up code that isn't working to call save searches
+//        $scope.zipFound = current.find();
+//          $scope.storage = $localStorage;
+
+//       $scope.findZip = function(){
+//           $scope.zipFound = current.find({
+//               query: $scope.location
+//           });
+//           $scope.searchQuery = $scope.location;
+//       };
+   
+  
     }; 
   
-     //  $scope.zipsFound = current.find();
-     //    $scope.storage = $localStorage;
-
-    //  $scope.findZips = function(){
-    //      $scope.zipsFound = current.find({
-   //           query: $scope.location
-   //       });
-   //       $scope.searchQuery = $scope.location;
-  //    };
+  $rootScope.reloadZip=function(location) {
+      console.log(location);
+      $scope.current = current.query({location: location}); 
+    $rootScope.viewMore = $scope.current;
+  };
   
+        
   
   });
 

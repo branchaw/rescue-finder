@@ -34,17 +34,18 @@
       <h2>Saved Searches</h2>
       <ul class="saved-searches-list" style="list-style: none">
         <li ng-repeat="zip in storage.savedZips">
-          <a ng-click="savedZips(location)" class="btn btn-sm btn-primary">{{zip.location}}</a>
+<!--           <a ng-href="#/main/{{zip.location}}" class="btn btn-sm btn-primary">{{zip.location}} </a> -->
+          <a ng-click="reloadZip(zip.location)" class="btn btn-sm btn-primary">{{zip.location}}</a>
         </li>
       </ul>
     </div>
 
       <div ng-messages="zipSaved">
           <p class="zip-saved-alert bg-success text-success" ng-message="success">
-              {{storage.savedZips.zip.location}} has been saved to your list of searches.
+              {{zip.location}} has been saved to your list of searches.
           </p>
           <p class="zip-saved-alert bg-warning text-warning" ng-message="duplicate">
-             {{storage.savedZips.zip.location}} has already been saved to your list of searches.
+             {{zip.location}} has already been saved to your list of searches.
           </p>
       </div>
 
