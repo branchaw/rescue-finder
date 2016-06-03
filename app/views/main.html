@@ -40,18 +40,24 @@
       </ul>
     </div>
 
-      <div ng-messages="zipSaved">
+   <toast></toast>     
+           
+         
+
+   <!--   <div ng-messages="zipSaved">
           <p class="zip-saved-alert bg-success text-success" ng-message="success">
-              {{zip.location}} has been saved to your list of searches.
+              {{alertZip}} has been saved to your list of searches.
           </p>
           <p class="zip-saved-alert bg-warning text-warning" ng-message="duplicate">
-             {{zip.location}} has already been saved to your list of searches.
+             {{alertZip}} has already been saved to your list of searches.
           </p>
-      </div>
+      </div> -->
 
 </div> 
 
-<!--
+
+
+<!-- <toast></toast>
 <p> 
 <div map-lazy-load="https://maps.google.com/maps/api/js"
   map-lazy-load-params="{{googleMapsUrl}}">

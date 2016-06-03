@@ -8,7 +8,7 @@
  * Controller of the workspaceApp */
  
 angular.module('workspaceApp')
-  .controller('MainCtrl', function ($scope, $rootScope, current, search, $localStorage, $timeout) {
+  .controller('MainCtrl', function ($scope, $rootScope, current, search, $localStorage, $timeout, ngToast) {
     console.log($scope.current = current.query({location: "98102"}));
    $rootScope.viewMore = $scope.current;
   
@@ -23,6 +23,7 @@ angular.module('workspaceApp')
    $scope.storage = $localStorage;
   
  $scope.saveZip = function(location){
+   $scope.alertZip = location;
    var zipData = {
         'location': location    
     };
@@ -46,6 +47,8 @@ angular.module('workspaceApp')
         if (save===true){
             $localStorage.savedZips.push(zipData);
          
+          //success message
+          ngToast.create('search successfully saved');
           //object to trigger success message
           $rootScope.zipSaved = {
             'success': true
@@ -53,39 +56,28 @@ angular.module('workspaceApp')
           
                   
         } else {
-            console.log('location already saved');
-        
+            console.log('seach already saved');
+          
+          //duplicate search warning message
+          ngToast.create({
+           className: 'warning',
+            horizontalPosition: 'center',
+           content: 'search already saved'
+              });
           //object to trigger message
           $rootScope.zipSaved = {
             'duplicate': true
           };         
         }
       }
-  //        $timeout.zipSaved(function() {
-  //         $scope.showMessage = false;
-  //          }, 2000); 
-       
-     // messed up code that isn't working to call save searches
-//        $scope.zipFound = current.find();
-//          $scope.storage = $localStorage;
-
-//       $scope.findZip = function(){
-//           $scope.zipFound = current.find({
-//               query: $scope.location
-//           });
-//           $scope.searchQuery = $scope.location;
-//       };
-   
   
     }; 
-  
-  $rootScope.reloadZip=function(location) {
-      console.log(location);
-      $scope.current = current.query({location: location}); 
-    $rootScope.viewMore = $scope.current;
-  };
-  
-        
+     //function to call saved searches 
+      $rootScope.reloadZip=function(location) {
+          console.log(location);
+          $scope.current = current.query({location: location}); 
+        $rootScope.viewMore = $scope.current;
+      };        
   
   });
 

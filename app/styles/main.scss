@@ -18,19 +18,21 @@ html, body {
   background-size:cover;
   background-position:center center;
   background-attachment:fixed;
-  background-size: 100%;
+  background-repeat: no-repeat;
+//  background-size: 100%;
 //  -webkit-background-size: cover;
 //  -moz-background-size: cover;
 //  -o-background-size: cover;
   
-//  height: 100%;
   position: relative;  
   width: 100%;
+  height: 100%;
   background-color: lightgray;
   color: black;
 //  text-align: center;
 //  text-shadow: 0 1px 3px rgba(0,0,0,.5);
 }
+
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
@@ -42,7 +44,7 @@ html, body {
 
 /* Custom page header */
 .header {
-  border-bottom: 1px solid #e5e5e5;
+//  border-bottom: 1px solid #e5e5e5;
   margin-bottom: 10px;
 
   /* Make the masthead heading the same height as the navigation */
@@ -58,7 +60,9 @@ html, body {
 .footer {
   padding-top: 19px;
   color: white; // #777;
-  border-top: 1px solid #e5e5e5;
+//  border-top: 1px solid #e5e5e5;
+//  background-color: rgba(255,255,255, 0.5);
+//  color: inherit;
 }
 
 .container-narrow > hr {
